@@ -1,0 +1,25 @@
+<div class="jumbotron">
+  <h1>Pais, {{vm.name}}</h1>
+
+  <div class="row">
+    
+    <table class="table table-hover table-dark">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Pai</th>
+          <th scope="col">Filho</th>
+        </tr>
+      </thead>
+      <tbody ng-repeat='pai in vm.pais'>
+          <tr ng-repeat='filho in pai.filhos'>
+            <td><b>{{$index+1}}</b></td>
+            <td>{{pai.nome}}</td>
+            <td>{{filho.nome}}</td>
+        </tr>
+      </tbody>
+    </table>
+    
+  </div>
+
+</div>
