@@ -1,5 +1,8 @@
 package com.stefanini.projeto.model;
 
+import com.stefanini.projeto.exception.TreinaException;
+import org.aspectj.lang.annotation.AfterThrowing;
+
 import java.io.Serializable;
 import java.util.List;
 
@@ -22,11 +25,11 @@ public class Pai implements Serializable{
 	@Column(name = "PA_NU")
 	private Long id;
 
-	@Column(name = "PA_NO")
+	@Column(name = "PA_NO", length = 20)
 	private String nome;
 
 	@OneToMany(mappedBy = "pai")
-	private List<Pai> pai;
+	private List<Filho> filhos;
 
 	public Pai() {
 		super();
@@ -55,12 +58,12 @@ public class Pai implements Serializable{
 	}
 
 	
-	public List<Pai> getPai() {
-		return pai;
+	public List<Filho> getFilhos() {
+		return filhos;
 	}
 
-	public void setPai(List<Pai> pai) {
-		this.pai = pai;
+	public void setFilhos(List<Filho> filhos) {
+		this.filhos = filhos;
 	}
 
 

@@ -38,7 +38,11 @@ public class PaiController {
 	
 	@RequestMapping(method = {RequestMethod.POST, RequestMethod.PUT}, value = "/salvar", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Pai> salvar(@RequestBody Pai pai) throws TreinaException{
-		return new ResponseEntity<>(service.salvar(pai), HttpStatus.OK);
+		try {
+			return new ResponseEntity<>(service.salvar(pai), HttpStatus.OK);
+		} catch (Exception e) {
+			throw new TreinaException("OOps! Não conseguimos salvar o pai!!!");
+		}
 	}
 	/*@PostMapping
 	public Pai create(@RequestBody Pai pai) throws TreinaException{

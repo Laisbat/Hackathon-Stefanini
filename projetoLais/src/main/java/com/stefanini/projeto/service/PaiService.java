@@ -2,6 +2,8 @@ package com.stefanini.projeto.service;
 
 import java.util.List;
 import javax.transaction.Transactional;
+
+import com.stefanini.projeto.model.Filho;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,13 +20,17 @@ public class PaiService {
 
 	@Transactional
 	public Pai salvar(Pai pai) throws TreinaException {
-		return repository.save(pai);
+	    try {
+            return repository.save(pai);
+        } catch (Exception e) {
+            throw new TreinaException("OOps! Não conseguimos salvar o pai.");
+        }
 	}
 
-	/*
-	 * public Pessoa obter(Long numeroProjeto) throws PocException { return
-	 * repository.findById(numeroProjeto).get(); }
-	 */
+
+	public Pai obter(Long idPai) throws TreinaException {
+		return repository.findById(idPai).get();
+	}
 
 	public List<Pai> consultar() throws TreinaException {
 		return (List<Pai>) repository.findAll();

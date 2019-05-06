@@ -26,7 +26,6 @@ public class Filho implements Serializable{
 	private String nome;
 
 	@ManyToOne
-	@com.fasterxml.jackson.annotation.JsonIgnore
 	@JoinColumn(name = "PA_NU", referencedColumnName = "PA_NU")
 	private Pai pai;
 
@@ -47,14 +46,6 @@ public class Filho implements Serializable{
 		this.id = id;
 	}
 
-	public Pai getPai() {
-		return pai;
-	}
-
-	public void setDono(Pai pai) {
-		this.pai = pai;
-	}
-
 	public String getNome() {
 		return nome;
 	}
@@ -63,9 +54,14 @@ public class Filho implements Serializable{
 		this.nome = nome;
 	}
 
+	public Pai getPai() {
+		return pai;
+	}
+
 	public void setPai(Pai pai) {
 		this.pai = pai;
 	}
+
 
 	@Override
 	public int hashCode() {
@@ -75,5 +71,8 @@ public class Filho implements Serializable{
 		return result;
 	}
 
+	public String toString() {
+		return " - " + getPai().getId().toString();
+	}
 
 }
