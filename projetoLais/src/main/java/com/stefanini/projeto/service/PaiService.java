@@ -32,7 +32,7 @@ public class PaiService {
 
 	public String excluir(Long id) throws TreinaException {
 		repository.deleteById(id);
-		return "Excluído com sucesso!";
+		return "ExcluÃ­do com sucesso!";
 	}
 
 }

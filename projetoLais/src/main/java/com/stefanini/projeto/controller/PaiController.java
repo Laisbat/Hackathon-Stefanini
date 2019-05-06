@@ -40,7 +40,6 @@ public class PaiController {
 	public ResponseEntity<Pai> salvar(@RequestBody Pai pai) throws TreinaException{
 		return new ResponseEntity<>(service.salvar(pai), HttpStatus.OK);
 	}
-	
 	/*@PostMapping
 	public Pai create(@RequestBody Pai pai) throws TreinaException{
 	   return service.salvar(pai);
