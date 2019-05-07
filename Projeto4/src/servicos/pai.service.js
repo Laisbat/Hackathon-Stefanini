@@ -8,24 +8,22 @@ class PaiService {
         this.path =  apiBase + "/pai";
     }
  
-    getPai() {
-        return this.$http.get(this.path/consultar);
+    getPais() {
+        return this.$http.get(`${this.path}/consultar`);
     }
  
-    
-    /*
-    consultarPai(): Observable<string> {
-        return this.http.post<string>(`${this.path}/consultar`);
+    consultarPai() {
+        return this.http.get(`${this.path}/consultar`);
     }
    
-    salvarPai(): Observable<string> {
-        return this.http.post<string>(`${this.path}/salvar`);
+    salvarPai() {
+        return this.http.post(`${this.path}/salvar`);
     }
     
-    excluirPai(): Observable<string> {
-        return this.http.post<string>(`${this.path}/excluir`);
+    excluirPai() {
+        return this.http.delete(`${this.path}/excluir`);
     }
-    */
+    
 
 }
 

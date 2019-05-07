@@ -1,0 +1,32 @@
+<h1>Formulario de Cadastro :</h1>
+<div class="jumbotron">
+
+  <head>
+    <meta charset="utf-8" />
+  </head>
+
+  <body>
+    <form name="cadastroForm">
+      
+      <div class="form-row align-items-center">
+        <div class="col-auto">
+          <label class="sr-only" for="inlineFormInput">Nome</label>
+          <input ng-model="vm.pai.nome" md-maxlength="20" class="form-control mb-5" id="inlineFormInput"
+            placeholder="Nome do Pai">
+        </div>
+
+        <div class="col-auto">
+          <label class="sr-only" for="inlineFormInput">Pai</label>
+          <input ng-model="vm.filho.nome" md-maxlength="20" type="text" class="form-control mb-5" id="inlineFormInput"
+            placeholder="Nome do Filho">
+        </div>
+
+        <div  class="col-auto">
+          <button type="submit" class="btn btn-primary" ui-sref="pai.consultar"> Voltar </button>
+          <button type="reset" class="btn btn-warning" type="reset" ng-disabled="vm.isDetalhar"> Limpar </button>
+          <button class="btn btn-success" ng-disabled="vm.isDetalhar" ng-click="vm.salvar()"> Salvar </button>
+        </div>
+
+    </form>
+  </body>
+</div>

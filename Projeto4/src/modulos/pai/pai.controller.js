@@ -4,12 +4,15 @@ export default class PaiController {
 
   constructor(paiService) {
     var vm = this;
-    this.name = 'Pai';
+    vm.name = 'Lindalberto';
+    vm.teste = "teste 123!!!";
 
     init();
 
     function init(){
-      paiService.getPais().then(function abc(resp) {
+      paiService.getPais().then(
+        function(resp) {
+          console.log(resp);
         vm.pais = resp.data;
       });
     }
