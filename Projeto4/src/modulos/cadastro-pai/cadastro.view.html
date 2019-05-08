@@ -9,8 +9,6 @@
 
   <p ng-if="vm.error" class="text-danger text-center">{{ vm.error }}</p>
   <form name="cadastroForm">
-
-    <div class="form-row align-items-center">
       <div class="col-auto">
         <label class="sr-only" for="inlineFormInput">Nome</label>
         <input ng-model="vm.pai.nome" md-maxlength="20" class="form-control mb-5" id="inlineFormInput"
@@ -23,7 +21,7 @@
           placeholder="Nome do Filho">
       </div>
 
-      <div class="col-auto">
+      <div class="col-auto float-right">
         <button class="btn btn-primary" class="nav-link" ui-sref="pai"> Voltar </button>
         <button type="reset" class="btn btn-warning" type="reset" ng-click="vm.limparPai()"> Limpar </button>
         <button class="btn btn-success" ng-click="vm.cadastrarPai()"> Salvar </button>
