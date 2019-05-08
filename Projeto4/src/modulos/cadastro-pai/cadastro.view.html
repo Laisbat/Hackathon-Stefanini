@@ -6,6 +6,7 @@
   </head>
 
   <body>
+    <p ng-if="vm.error" class="text-danger text-center">{{ vm.error }}</p>
     <form name="cadastroForm">
       
       <div class="form-row align-items-center">
@@ -22,9 +23,9 @@
         </div>
 
         <div  class="col-auto">
-          <button type="submit" class="btn btn-primary" ui-sref="pai.consultar"> Voltar </button>
-          <button type="reset" class="btn btn-warning" type="reset" ng-disabled="vm.isDetalhar"> Limpar </button>
-          <button class="btn btn-success" ng-disabled="vm.isDetalhar" ng-click="vm.salvar()"> Salvar </button>
+          <button type="submit" class="btn btn-primary" ung-click="vm.home"> Voltar </button>
+          <button type="reset" class="btn btn-warning" type="reset" ng-click="vm.limparPai()"> Limpar </button>
+          <button class="btn btn-success"  ng-click="vm.cadastrarPai()"> Salvar </button>
         </div>
 
     </form>

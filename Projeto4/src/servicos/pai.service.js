@@ -7,23 +7,25 @@ class PaiService {
         const apiBase = "http://localhost:8080";
         this.path =  apiBase + "/pai";
     }
- 
+
     getPais() {
         return this.$http.get(`${this.path}/consultar`);
     }
- 
-    consultarPai() {
-        return this.http.get(`${this.path}/consultar`);
+    
+    getByName(paramPesquisa) {
+    	return this.$http.get(this.path + '/nome/' + paramPesquisa);
     }
    
-    salvarPai() {
-        return this.http.post(`${this.path}/salvar`);
+    salvarPai(pai) {
+        return this.$http.post(`${this.path}/salvar`, {'nome': pai.nome, 'id': pai.id});
     }
     
     excluirPai() {
-        return this.http.delete(`${this.path}/excluir`);
+        return this.$http.delete(`${this.path}/excluir`);
     }
-    
+    deleteById(id){
+    	return this.$http.delete(this.path + '/' + id);
+    }
 
 }
 

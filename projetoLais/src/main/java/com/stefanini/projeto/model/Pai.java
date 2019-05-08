@@ -6,13 +6,7 @@ import org.aspectj.lang.annotation.AfterThrowing;
 import java.io.Serializable;
 import java.util.List;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.SequenceGenerator;
+import javax.persistence.*;
 
 @Entity
 public class Pai implements Serializable{
@@ -25,10 +19,10 @@ public class Pai implements Serializable{
 	@Column(name = "PA_NU")
 	private Long id;
 
-	@Column(name = "PA_NO", length = 20)
+	@Column(name = "PA_NO", length = 20, nullable = false)
 	private String nome;
 
-	@OneToMany(mappedBy = "pai")
+	@OneToMany(mappedBy = "pai", cascade = CascadeType.ALL)
 	private List<Filho> filhos;
 
 	public Pai() {

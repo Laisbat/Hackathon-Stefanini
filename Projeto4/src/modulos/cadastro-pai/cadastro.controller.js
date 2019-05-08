@@ -4,14 +4,53 @@ export default class CadastroController {
 
   constructor(paiService) {
     var vm = this;
-    vm.name = 'Lindalberto';
-    vm.teste = "teste 123!!!";
+    vm.error = null;
 
     init();
 
-    function init(){
+    function init() {
+      vm.filhos = [];
+      vm.adicionaFilho = adicionaFilho;
+      vm.cadastrarPai = function () {
+        vm.pai.filhos = [];
+        vm.pai.filhos = getFilhos();
+        if (!vm.pai.nome) {
+          vm.error = "Preencha o campo nome.";
+          return;
+        }
+
+        paiService.salvarPai(vm.pai)
+          .then(function response(resp) { 
+            vm.pai = resp.data;
+            console.log(resp);
+          }).catch(function (error) {  
+            vm.error = "Houve uma falha na requisição.";
+          });
+      }
+
+      vm.cadastrarFilho = function () {
+        console.log(vm.filhos);
+        paiervice.postPagina(vm.filhos)
+          .then(function response(resp) {
+            console.log(resp);
+          }).catch(function (error) { 
+            console.log(error);
+          });
+      }
+
+      vm.limparPai = function() {
+        vm.pai = null;
+      };
+
+      function adicionaFilho(filhos) {
+        vm.filhos.push(filhos);
+      }
+         
+      function getFilhos(){
+        return vm.filhos;
+      }
     }
   }
-  
+
 }
 CadastroController.$inject = ['paiService'];

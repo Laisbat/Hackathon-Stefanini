@@ -1,5 +1,8 @@
 package com.stefanini.projeto.service;
 
+import java.io.IOException;
+import java.lang.reflect.InvocationTargetException;
+import java.sql.SQLException;
 import java.util.List;
 import javax.transaction.Transactional;
 
@@ -23,7 +26,7 @@ public class PaiService {
 	    try {
             return repository.save(pai);
         } catch (Exception e) {
-            throw new TreinaException("OOps! Não conseguimos salvar o pai.");
+            throw new TreinaException(e.getMessage());
         }
 	}
 

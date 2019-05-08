@@ -20,7 +20,7 @@ import com.stefanini.projeto.service.PaiService;
 
 @CrossOrigin
 @Controller
-@RequestMapping(value = "/pai")
+@RequestMapping(value = "/pai", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
 public class PaiController {
 
 	@Autowired
@@ -32,23 +32,19 @@ public class PaiController {
 	}*/
 	
 	@RequestMapping(method = RequestMethod.GET, value = "/consultar", produces = MediaType.APPLICATION_JSON_VALUE)
-	public @ResponseBody List<Pai> consultar()  throws TreinaException{
-		return service.consultar();
+	public @ResponseBody ResponseEntity<List<Pai>> consultar()  throws TreinaException{
+		return new ResponseEntity<>(service.consultar(), HttpStatus.OK);
 	}
 	
 	@RequestMapping(method = {RequestMethod.POST, RequestMethod.PUT}, value = "/salvar", produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<Pai> salvar(@RequestBody Pai pai) throws TreinaException{
+	public ResponseEntity<Pai> salvar(@RequestBody Pai pai) {
 		try {
 			return new ResponseEntity<>(service.salvar(pai), HttpStatus.OK);
 		} catch (Exception e) {
-			throw new TreinaException("OOps! Não conseguimos salvar o pai!!!");
+			return new ResponseEntity<>(HttpStatus.CONFLICT);
 		}
 	}
-	/*@PostMapping
-	public Pai create(@RequestBody Pai pai) throws TreinaException{
-	   return service.salvar(pai);
-	}*/
-		
+
 	@RequestMapping(method = RequestMethod.DELETE, value = "/excluir", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Void> excluir(@RequestParam(value = "pai") Long id) throws TreinaException{
 		service.excluir(id);

@@ -17,12 +17,16 @@
           <th scope="col">Filho</th>
         </tr>
       </thead>
-      <tbody ng-repeat='pai in vm.pais'>
+      <tbody ng-repeat='pai in vm.pai'>
         <tr>
-          <td><b>{{$index+1}}</b></td>
+          <td><b>{{pai.id}}</b></td>
           <td>{{pai.nome}}</td>
           <td>{{filho.nome}}</td>
         </tr>
+        <td>
+            <input class="btn btn-success"type="button" value="Editar" ng-click="vm.editar(pai.id)">
+            <input class="btn btn-danger"type="button" value="Excluir" ng-click="vm.excluir(pai.id)">
+          </td>
       </tbody>
     </table>
     
