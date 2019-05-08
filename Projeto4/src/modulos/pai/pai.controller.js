@@ -20,28 +20,28 @@ export default class PaiController {
         console.log(vm.pai);
         vm.pai.path = null;
         paiService.post(vm.pai)
-          .then(function response(resp) { //Retorno positivo
+          .then(function response(resp) { 
             console.log(resp);
-          }).catch(function (error) { //Retorno negativo -> erro, exceção
+          }).catch(function (error) { 
             console.log(error);
           });
       }
 
       vm.buscarTodos = function () {
         paiService.getPais()
-          .then(function response(resp) { //Retorno positivo
+          .then(function response(resp) {
             vm.pai = resp.data;
-          }).catch(function (error) { //Retorno negativo -> erro, exceção
+          }).catch(function (error) { 
             console.log(error);
           });
       }
 
       vm.cadastrarFilho = function () {
         console.log(vm.filho);
-        paiService.postPagina(vm.filho)
-          .then(function response(resp) { //Retorno positivo
+        paiService.salvarPai(vm.filho)
+          .then(function response(resp) { 
             console.log(resp);
-          }).catch(function (error) { //Retorno negativo -> erro, exceção
+          }).catch(function (error) { 
             console.log(error);
           });
       }

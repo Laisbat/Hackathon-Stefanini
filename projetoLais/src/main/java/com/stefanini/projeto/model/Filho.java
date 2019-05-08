@@ -26,6 +26,7 @@ public class Filho implements Serializable{
 	private String nome;
 
 	@ManyToOne
+	@com.fasterxml.jackson.annotation.JsonIgnore
 	@JoinColumn(name = "PA_NU", referencedColumnName = "PA_NU")
 	private Pai pai;
 

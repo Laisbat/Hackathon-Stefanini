@@ -26,13 +26,13 @@ public class PaiController {
 	@Autowired
 	PaiService service;
 	
-	/*@RequestMapping(value="/lista", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(value="/lista", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	public @ResponseBody List<Pai> findAll() throws TreinaException {
-		return paiservice.findAll();
-	}*/
+		return service.consultar();
+	}
 	
 	@RequestMapping(method = RequestMethod.GET, value = "/consultar", produces = MediaType.APPLICATION_JSON_VALUE)
-	public @ResponseBody ResponseEntity<List<Pai>> consultar()  throws TreinaException{
+	public ResponseEntity<List<Pai>> consultar()  throws TreinaException{
 		return new ResponseEntity<>(service.consultar(), HttpStatus.OK);
 	}
 	
