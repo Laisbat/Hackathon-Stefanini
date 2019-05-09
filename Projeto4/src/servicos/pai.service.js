@@ -11,20 +11,13 @@ class PaiService {
     getPais() {
         return this.$http.get(`${this.path}/consultar`);
     }
-    
-    getByName(paramPesquisa) {
-    	return this.$http.get(this.path + '/nome/' + paramPesquisa);
-    }
    
     salvarPai(pai) {
-        return this.$http.post(`${this.path}/salvar`, {'nome': pai.nome, 'id': pai.id});
+        return this.$http.post(`${this.path}/salvar`, pai);
     }
     
-    excluirPai() {
-        return this.$http.delete(`${this.path}/excluir`);
-    }
-    deleteById(id){
-    	return this.$http.delete(this.path + '/' + id);
+    excluirPai(id) {
+        return this.$http.delete(`${this.path}/excluir?pai=${id}`);
     }
 
 }

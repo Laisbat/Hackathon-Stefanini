@@ -20,7 +20,7 @@ import com.stefanini.projeto.service.PaiService;
 
 @CrossOrigin
 @Controller
-@RequestMapping(value = "/pai", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
+@RequestMapping(value = "/pai")
 public class PaiController {
 
 	@Autowired

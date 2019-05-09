@@ -34,9 +34,10 @@ public class Filho implements Serializable{
 		super();
 	}
 
-	public Filho(String nome) {
+	public Filho(String nome, Pai pai) {
 		super();
 		this.nome = nome;
+		this.pai = pai;
 	}
 
 	public Long getId() {
@@ -63,8 +64,17 @@ public class Filho implements Serializable{
 		this.pai = pai;
 	}
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Filho filho = (Filho) o;
+        return id.equals(filho.id) &&
+                nome.equals(filho.nome) &&
+                pai.equals(filho.pai);
+    }
 
-	@Override
+    @Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;

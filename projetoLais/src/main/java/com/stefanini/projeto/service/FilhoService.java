@@ -17,11 +17,6 @@ public class FilhoService {
 
 	@Transactional
 	public Filho salvar(Filho filho) throws TreinaException {
-		/*
-		if (filho.getPai().getFilhos().size() > 1) {
-			throw new TreinaException("Quantidade de filhos excedida");
-		}*/
-
 		return repository.save(filho);
 	}
 

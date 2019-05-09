@@ -28,6 +28,7 @@ export default class PaiController {
       }
 
       vm.buscarTodos = function () {
+        console.log("Efetuando requisição");
         paiService.getPais()
           .then(function response(resp) {
             vm.pai = resp.data;
@@ -47,9 +48,10 @@ export default class PaiController {
       }
 
       vm.excluir = function (id) {
-        documentoService.deleteById(id)
+        paiService.excluirPai(id)
           .then(function response(resp) {
-            console.log(resp);
+            alert('Pai excluído com sucesso!');
+            vm.buscarTodos();
           }).catch(function error(error) {
             console.log(error);
           });

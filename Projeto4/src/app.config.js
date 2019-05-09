@@ -1,3 +1,5 @@
+import { ParamTypes } from "@uirouter/core";
+
 routing.$inject = ['$stateProvider', '$urlRouterProvider'];
 
 export default function routing($stateProvider, $urlRouterProvider) {
@@ -24,7 +26,10 @@ export default function routing($stateProvider, $urlRouterProvider) {
         url: '/cadastro',
         templateUrl: './modulos/cadastro-pai/cadastro.view.html',
         controller: 'CadastroController',
-        controllerAs: 'vm'
+        controllerAs: 'vm',
+        params: {
+          'id': null
+        } 
       }
       $stateProvider.state(paiCadastroState);
       

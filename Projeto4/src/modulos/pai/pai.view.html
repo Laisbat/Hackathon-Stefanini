@@ -15,12 +15,12 @@
       <tr>
         <td><b>{{pai.id}}</b></td>
         <td>{{pai.nome}}</td>
-        <td>{{filho.nome}}</td>
+        <td>{{pai.filho}}</td>
+        <td class="float-right">
+          <input class="btn btn-success btn-sm" role="button" value="Editar" ui-sref="cadastro({id: pai.id})">
+          <input class="btn btn-danger btn-sm" role="button" value="Excluir" ng-click="vm.excluir(pai.id)">
+        </td>
       </tr>
-      <td>
-        <input class="btn btn-success" role="button" value="Editar" ng-click="vm.editar(pai.id)">
-        <input class="btn btn-danger" role="button" value="Excluir" ng-click="vm.excluir(pai.id)">
-      </td>
     </tbody>
   </table>
 

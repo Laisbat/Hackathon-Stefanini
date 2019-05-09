@@ -20,10 +20,11 @@ export default class CadastroController {
         }
 
         paiService.salvarPai(vm.pai)
-          .then(function response(resp) { 
-            vm.pai = resp.data;
-            console.log(resp);
-          }).catch(function (error) {  
+          .then(function response(resp) {
+            vm.error = "";
+            vm.pai = null;
+            alert("Cadastrado com sucesso!");
+          }).catch(function (error) {
             vm.error = "Houve uma falha na requisição.";
           });
       }
